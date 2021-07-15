@@ -8,21 +8,34 @@ import { MaterialModule } from './material.module';
 import { PlayerComponent } from './pages/player/player.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './pages/upload/upload.component';
+import { LoginComponent } from './pages/login/login.component';
+import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
+import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    UploadComponent
+    UploadComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    PerfectScrollbarModule
   ],
-  providers: [],
+  providers: [ {
+    provide: PERFECT_SCROLLBAR_CONFIG,
+    useValue: {
+      suppressScrollX: true,
+    },
+  } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

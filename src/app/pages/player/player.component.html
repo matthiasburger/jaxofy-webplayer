@@ -12,8 +12,8 @@
       <h3 mat-subheader>Songs</h3>
       <mat-list-item *ngFor="let file of files; let i = index" (click)="openFile(file, i)">
         <mat-icon color="primary" mat-list-icon>music_note</mat-icon>
-        <h4 mat-line>{{ file.name }}</h4>
-        <h5 mat-line>by {{ file.artist }}</h5>
+        <h4 mat-line>{{ file.title }}</h4>
+        <h5 mat-line>by {{ file.artistName }}</h5>
         <mat-icon color="primary" *ngIf="currentFile.index === i && !state?.error">volume_up</mat-icon>
         <h6 *ngIf="currentFile.index === i && state?.error">ERROR</h6>
         <mat-divider></mat-divider>

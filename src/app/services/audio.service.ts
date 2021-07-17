@@ -11,6 +11,7 @@ import {StreamState} from '../interfaces/stream-state';
 export class AudioService {
   private stop$ = new Subject();
   private audioObj = new Audio();
+
   audioEvents = [
     'ended',
     'error',
@@ -36,6 +37,9 @@ export class AudioService {
   private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject(
     this.state
   );
+
+  private onEndFunction = () => {};
+
 
   private addEvents(obj: any, events: any[], handler: any): void {
     events.forEach(event => {
@@ -70,8 +74,11 @@ export class AudioService {
   }
 
   formatTime(time: number, format: string = 'HH:mm:ss'): string {
-    const momentTime = time * 1000;
-    return moment.utc(momentTime).format(format);
+
+    return moment.utc(time).format(format);
+
+    // const momentTime = time * 1000;
+    // return moment.utc(momentTime).format(format);
   }
 
   private updateStateEvents(event: Event): void {
@@ -97,8 +104,16 @@ export class AudioService {
         this.resetState();
         this.state.error = true;
         break;
+      case 'ended':
+        console.log('end');
+        this.onEndFunction();
+        break;
     }
     this.stateChange.next(this.state);
+  }
+
+ public onEnd(fn: any): void {
+    this.onEndFunction = fn;
   }
 
   private resetState(): void {

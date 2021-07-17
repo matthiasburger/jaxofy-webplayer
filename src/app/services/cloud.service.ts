@@ -1,35 +1,18 @@
 // src/app/services/cloud.service.ts
-import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {AudioFile} from '../interfaces/audio-file';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CloudService {
-  files: any = [
-    // tslint:disable-next-line: max-line-length
-    {
-      url:
-        'http://localhost:8000/api/v1/play/1bcdc63c-6c02-42b3-9376-4d9a48929d12',
-      name: 'Perfect',
-      artist: ' Ed Sheeran'
-    },
-    {
-      // tslint:disable-next-line: max-line-length
-      url:
-        'http://localhost:8000/api/v1/play/1bcdc63c-6c02-42b3-9376-4d9a48929d12',
-      name: 'Man Atkeya Beparwah',
-      artist: 'Nusrat Fateh Ali Khan'
-    },
-    {
-      url:
-        'http://localhost:8000/api/v1/play/1bcdc63c-6c02-42b3-9376-4d9a48929d12',
-      name: 'Penny Lane',
-      artist: 'The Beatles'
-    }
-  ];
+  constructor(public http: HttpClient) {
+  }
 
-  getFiles(): Observable<any[]> {
-    return of(this.files);
+  getFiles(): Observable<AudioFile[]> {
+    const url = 'http://localhost:8000/api/v1/tracks';
+    return this.http.get<AudioFile[]>(url);
   }
 }

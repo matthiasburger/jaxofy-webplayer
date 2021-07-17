@@ -1,0 +1,74 @@
+<div class="dashboard-component">
+
+  <div class="top-navigation">
+
+    <div class="logo d-none d-md-block">
+      <img src="assets/images/general/logo_inverse.png" alt="logo">
+    </div>
+
+    <div class="menu d-md-none">
+      <button (click)="showSideNavigation = !showSideNavigation" class="btn btn-primary">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+
+    <div class="right">
+
+      <!--
+      <div class="d-inline-block" ngbDropdown [container]="'body'">
+          <button class="btn btn-primary mr-2" ngbDropdownToggle>
+              <i class="bi bi-bell"></i>
+          </button>
+          <div ngbDropdownMenu>
+              Notification Content
+          </div>
+      </div>
+      <div class="d-inline-block" ngbDropdown [container]="'body'">
+          <button class="btn btn-primary mr-2" ngbDropdownToggle>
+              <i class="bi bi-person-circle"></i>
+              Benutzer Name
+          </button>
+          <div ngbDropdownMenu>
+              <button ngbDropdownItem>Profil</button>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem>Ausloggen</button>
+          </div>
+      </div>-->
+
+    </div>
+
+  </div>
+
+  <div class="content">
+
+    <div [ngClass]="showSideNavigation ? 'd-fixed' : 'd-none d-md-block'" class="side-navigation">
+      <perfect-scrollbar>
+        <div class="menu mt-3">
+         <!-- <div *ngFor="let menuItem of menuService.menuItems" class="menu-item-container">
+            <div class="menu-item" [ngClass]="menuItem.active ? 'active' : ''"
+                 (click)="routerService.openRoute(menuItem.path)">
+              <div class="icon"><i class="bi" [ngClass]="menuItem.icon"></i></div>
+              <div class="name">{{ menuItem.name | translate }}</div>
+              <div *ngIf="menuItem.menuItems && menuItem.menuItems.length > 0" class="down">
+                <i class="bi" [ngClass]="menuItem.active ? 'bi-chevron-down' : 'bi-chevron-right'"></i>
+              </div>
+            </div>-->
+            <!--<div *ngIf="menuItem.active" class="sub-menu-items">
+              <div *ngFor="let menuSubItem of menuItem.menuItems"
+                   class="sub-menu-item" [ngClass]="menuSubItem.active ? 'active' : ''"
+                   (click)="routerService.openRoute(menuSubItem.path)">
+                <div class="name">{{ menuSubItem.name | translate }}</div>
+              </div>
+            </div>
+          </div>-->
+        </div>
+      </perfect-scrollbar>
+    </div>
+
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>

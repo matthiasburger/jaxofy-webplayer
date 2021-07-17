@@ -74,8 +74,11 @@ export class AudioService {
   }
 
   formatTime(time: number, format: string = 'HH:mm:ss'): string {
-    const momentTime = time * 1000;
-    return moment.utc(momentTime).format(format);
+
+    return moment.utc(time).format(format);
+
+    // const momentTime = time * 1000;
+    // return moment.utc(momentTime).format(format);
   }
 
   private updateStateEvents(event: Event): void {

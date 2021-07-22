@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'http://api-jaxofy.fam-burger.de/api/v1'
 };

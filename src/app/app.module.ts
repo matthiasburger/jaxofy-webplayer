@@ -12,6 +12,8 @@ import { LoginComponent } from './pages/login/login.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarModule } from 'ngx-perfect-sc
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    MatSidenavModule,
+    FlexModule,
+    ExtendedModule
   ],
   providers: [ {
     provide: PERFECT_SCROLLBAR_CONFIG,

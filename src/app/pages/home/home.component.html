@@ -1,43 +1,13 @@
-<div class="dashboard-component">
-
-  <div class="top-navigation">
-
-    <div class="logo d-none d-md-block">
-      <img src="assets/images/general/logo_inverse.png" alt="logo">
-    </div>
-
-    <div class="menu d-md-none">
-      <button (click)="showSideNavigation = !showSideNavigation" class="btn btn-primary">
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
-
-    <div class="right">
-
-      <!--
-      <div class="d-inline-block" ngbDropdown [container]="'body'">
-          <button class="btn btn-primary mr-2" ngbDropdownToggle>
-              <i class="bi bi-bell"></i>
-          </button>
-          <div ngbDropdownMenu>
-              Notification Content
-          </div>
-      </div>
-      <div class="d-inline-block" ngbDropdown [container]="'body'">
-          <button class="btn btn-primary mr-2" ngbDropdownToggle>
-              <i class="bi bi-person-circle"></i>
-              Benutzer Name
-          </button>
-          <div ngbDropdownMenu>
-              <button ngbDropdownItem>Profil</button>
-              <div class="dropdown-divider"></div>
-              <button ngbDropdownItem>Ausloggen</button>
-          </div>
-      </div>-->
-
-    </div>
-
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <div class="container">
+    <a class="navbar-brand">Angular Router</a>
+    <ul class="nav navbar-nav" routerLinkActive="active">
+      <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="player">Music</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="upload">Upload</a></li>
+    </ul>
   </div>
+</nav>
 
   <div class="content">
 
@@ -70,5 +40,3 @@
     </div>
 
   </div>
-
-</div>

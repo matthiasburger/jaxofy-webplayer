@@ -2,7 +2,23 @@
 <div class="container">
   <mat-toolbar color="primary" class="main-toolbar">
     <span>Audio Player</span>
+
+    <span class="example-spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md="true">
+
+      <a [routerLink]="['/player']" mat-button>Musik</a>
+
+      <a *ngIf="!authService.loggedIn()" [routerLink]="['/login']" mat-button>Login</a>
+      <a *ngIf="authService.loggedIn()" mat-button>du bist eingeloggt</a>
+
+      <a [routerLink]="['/upload']" mat-button>Upload</a>
+
+    </div>
+
   </mat-toolbar>
+
+
   <div class="content">
     <div class="logo">
       <mat-icon>music_note</mat-icon>

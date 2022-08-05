@@ -122,5 +122,7 @@
       }
     }
   },
-  "defaultProject": "jaxofy-webplayer"
+  "cli": {
+    "analytics": "3cf5af87-c350-48fa-9133-bd71d2426038"
+  }
 }

@@ -5,6 +5,7 @@ import {AudioService} from '../../services/audio.service';
 import {CloudService} from '../../services/cloud.service';
 import {StreamState} from '../../interfaces/stream-state';
 import {AudioFile} from '../../interfaces/audio-file';
+import {AuthService} from '../../services/auth.service';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class PlayerComponent {
 
   constructor(
     public audioService: AudioService,
-    public cloudService: CloudService
+    public cloudService: CloudService,
+    public authService: AuthService
   ) {
     // get media files
     cloudService.getFiles().subscribe(files => {

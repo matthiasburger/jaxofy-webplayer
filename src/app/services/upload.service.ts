@@ -3,6 +3,8 @@ import {Observable, Subscription} from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
 import {HttpClient, HttpRequest} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {Path} from '../core/path';
 
 
 @Injectable({
@@ -15,7 +17,7 @@ export class UploadService {
   constructor(private http: HttpClient) { }
 
   uploadFile(data: any): Observable<any> {
-    this.url = 'http://localhost:8000/api/v1/tracks';
+    this.url = Path.join(environment.apiUrl, '/tracks');
 
     return this.http.post(this.url, data)
       .pipe(
